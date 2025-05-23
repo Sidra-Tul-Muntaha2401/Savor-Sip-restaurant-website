@@ -1,122 +1,291 @@
-/* styles.css */
-
+/* Reset and base styles */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
-  background-color: #fefefe;
+  background: #fff;
   color: #333;
 }
 
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: auto;
-}
-
 header {
-  background-color: #4a2c2a;
-  color: white;
-  padding: 20px 0;
-  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  background-color: #222;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-header h1 {
-  float: left;
-}
-
-nav {
-  float: right;
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #f4b41a;
+  cursor: default;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 2rem;
 }
 
 nav a {
-  color: white;
   text-decoration: none;
-  font-weight: bold;
+  color: white;
+  font-weight: 600;
+  transition: color 0.3s ease;
 }
 
-.menu-toggle {
-  display: none;
+nav a:hover,
+nav a.active {
+  color: #f4b41a;
+}
+
+/* Hero Section */
+.home-hero {
+  background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+  color: white;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.home-hero .content {
+  background-color: rgba(0, 0, 0, 0.55);
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.home-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.home-hero p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.btn {
+  background-color: #f4b41a;
+  color: #222;
+  padding: 0.9rem 2.5rem;
+  border-radius: 30px;
+  font-weight: 600;
   cursor: pointer;
-  font-size: 24px;
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
 }
 
-.hero {
-  background: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
-  color: white;
-  padding: 100px 20px;
+.btn:hover {
+  background-color: #d49c15;
+}
+
+/* Sections */
+.section {
+  padding: 4rem 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h2 {
   text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 2.5rem;
+  color: #222;
 }
 
-.hero h2 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-.menu {
-  padding: 60px 0;
-}
-
-.menu h2 {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.items {
+/* Menu Cards */
+.cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
 }
 
-.item {
-  background: #f8f8f8;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+.card {
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: white;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.card h3 {
+  padding: 1rem 1rem 0.5rem;
+  color: #f4b41a;
+  font-weight: 700;
+}
+
+.card p {
+  padding: 0 1rem 1.5rem;
+  color: #555;
+  font-weight: 500;
+}
+
+/* About & Contact Sections */
+.about-section,
+.contact-section {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
   text-align: center;
 }
 
+.about-section p,
+.contact-section p {
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+  font-size: 1.1rem;
+  color: #444;
+  font-weight: 500;
+}
+
+.about-img,
+.contact-img {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+/* Footer */
 footer {
-  background-color: #4a2c2a;
-  color: white;
   text-align: center;
-  padding: 20px 0;
-  margin-top: 40px;
+  padding: 1.8rem 0;
+  background-color: #222;
+  color: #f4b41a;
+  font-weight: 600;
+  margin-top: 3rem;
 }
 
+/* Modal (Booking) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1500;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #f4b41a;
+}
+
+/* Booking Form */
+.booking-form input,
+.booking-form textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  margin-bottom: 1.2rem;
+  border: 1.8px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: border-color 0.3s ease;
+}
+
+.booking-form input:focus,
+.booking-form textarea:focus {
+  outline: none;
+  border-color: #f4b41a;
+}
+
+.booking-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.booking-form button {
+  width: 100%;
+  background-color: #f4b41a;
+  border: none;
+  color: #222;
+  padding: 1rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.booking-form button:hover {
+  background-color: #d49c15;
+}
+
+/* Responsive Nav for small screens */
 @media (max-width: 768px) {
+  header {
+    padding: 1rem 1.5rem;
+  }
   nav ul {
-    display: none;
-    flex-direction: column;
-    background-color: #4a2c2a;
-    position: absolute;
-    right: 0;
-    top: 60px;
-    width: 100%;
-    padding: 20px 0;
+    gap: 1rem;
   }
-
-  nav ul.show {
-    display: flex;
+  .home-hero h1 {
+    font-size: 2.2rem;
   }
-
-  .menu-toggle {
-    display: block;
+  .home-hero p {
+    font-size: 1rem;
   }
-
-  header h1, nav {
-    float: none;
-    text-align: center;
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  .section {
+    padding: 3rem 1.5rem;
   }
 }
